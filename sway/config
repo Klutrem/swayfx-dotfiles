@@ -24,31 +24,68 @@ exec gnome-keyring-daemon
 exec wl-paste --type text --watch cliphist store 
 exec wl-paste --type image --watch cliphist store
 exec poweralertd
+
+xwayland enable
 ### Appearance
+#--- SWAYFX -----------------------------------------------------
 # window corner radius in px
-corner_radius 10
+corner_radius 5
+smart_corner_radius on
 
 # Window background blur
 blur on
-blur_xray off
-blur_passes 2
-blur_radius 5
+blur_xray on
+blur_passes 7
+blur_radius 3
+blur_noise 0.15
+blur_saturation 1.0
+blur_brightness 1.0
+blur_contrast 0.95
+corner_radius 10
+layer_effects panel blur enable waybar
+layer_effects wofi corner_radius 10
 
 shadows on
 shadows_on_csd off
 shadow_blur_radius 20
-shadow_color #0000007F
+shadow_color #2b4f6f
 
 # inactive window fade amount. 0.0 = no dimming, 1.0 = fully dimmed
-default_dim_inactive 0.0
+default_dim_inactive 0.25
 dim_inactive_colors.unfocused #000000FF
 dim_inactive_colors.urgent #900000FF
 
 # Move minimized windows into Scratchpad (enable|disable)
+
+#--- SWAYFX -----------------------------------------------------
 scratchpad_minimize disable
+
+
+gaps inner 5
+gaps outer 5
+smart_gaps on
+
+# Толщина рамок для обычных и плавающих окон
+default_border pixel 2
+default_floating_border pixel 2
+
+# Размер рамок окон
+for_window [tiling] border pixel 1
+for_window [floating] border none
+titlebar_border_thickness 3
+# Отключение рамки если открыто одно окно
+smart_borders on
+
+
+font pango:JetBrainsMono 10
+
+# border colors
+client.focused			#747182 #0e072e #a1a1a6 #0e072e
+
 
 ### Output configuration
 #
+
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #

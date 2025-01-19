@@ -24,7 +24,9 @@
     # run clipboard
     bindsym $mod+Mod1+v exec ~/.config/sway/scripts/ClipManager.sh
 
+
     bindsym $mod+T exec nemo
+    bindsym $mod+Shift+s exec ~/.config/sway/scripts/screenshot.sh
 
     bindsym Control+Mod1+l exec gtklock -s ~/.config/gtklock/style.css -c ~/.config/gtklock/config.ini
     # Exit sway (logs you out of your Wayland session)
@@ -98,7 +100,7 @@
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+t floating toggle
+    bindsym $mod+Shift+f floating toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
