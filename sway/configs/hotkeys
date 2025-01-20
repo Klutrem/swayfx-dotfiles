@@ -29,6 +29,7 @@
     bindsym $mod+Shift+s exec ~/.config/sway/scripts/screenshot.sh
 
     bindsym Control+Mod1+l exec gtklock -s ~/.config/gtklock/style.css -c ~/.config/gtklock/config.ini
+    bindsym Control+Mod1+p exec wlogout
     # Exit sway (logs you out of your Wayland session)
     bindsym Control+Mod1+Delete exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
@@ -143,3 +144,25 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+# Audio keybinds
+
+# Sink volume toggle mute
+bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
+# Source volume toggle mute
+bindsym XF86AudioMicMute exec swayosd-client --input-volume mute-toggle
+
+# Volume raise with max value
+bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume raise --max-volume 150
+# Volume lower with max value
+bindsym XF86AudioLowerVolume exec swayosd-client --output-volume lower --max-volume 150
+
+# Brightness raise
+bindsym XF86MonBrightnessUp exec swayosd-client --brightness raise
+# Brightness lower
+bindsym XF86MonBrightnessDown exec swayosd-client --brightness lower
+
+# audio play pause button
+bindcode 172 exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
